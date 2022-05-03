@@ -1,6 +1,10 @@
-require("dotenv").config();
+const dotenv=require("dotenv");
+dotenv.config()
+const JWTkey = 'rubi'
+
 
 // require("./config/database").connect();
+const jwt =require('jsonwebtoken')
 
 const express = require("express");
 const User = require("./modle/user")
@@ -46,8 +50,9 @@ app.post("/register", async (req, res) => {
   
       // Create token
       const token = jwt.sign(
-        { user_id: user._id, email },
-        process.env.TOKEN_KEY,
+      user,
+        JWTkey,
+        // process.env.TOKEN_KEY,
         {
           expiresIn: "2h",
         }

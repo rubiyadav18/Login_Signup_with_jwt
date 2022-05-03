@@ -22,7 +22,7 @@ console.log(MONGO_URI)
 //     });
 mongoose
   .connect(
-    `mongodb+srv://moni07:moni07@firstproject.jvubt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+    `mongodb+srv://rubi:rubi@cluster0.264g2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,

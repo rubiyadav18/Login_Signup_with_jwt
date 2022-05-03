@@ -4,6 +4,7 @@ const app = express()
 const bcrypt = require("bcrypt")
 const User = require("./modle/user") 
 const jwt = require("jsonwebtoken");
+const JWTkey = 'rubi'
 // const auth = require("./middleware/auth");
 
 
@@ -51,6 +52,7 @@ app.post("/register", async (req, res) => {
       // Create token
       const token = jwt.sign(
         { user_id: user._id, email },
+        JWTkey,
         // process.env.TOKEN_KEY,
         {
           expiresIn: "2h",
@@ -88,6 +90,7 @@ app.post("/register", async (req, res) => {
         // Create token
         const token = jwt.sign(
           { user_id: user._id, email },
+          // "hello",
           process.env.TOKEN_KEY,
           {
             expiresIn: "8h",
@@ -113,15 +116,9 @@ app.post("/register", async (req, res) => {
     res.status(200).send("Welcome 🙌 ");
   });
 
-
-
-
-
-
-
 mongoose
   .connect(
-    `mongodb+srv://moni07:moni07@firstproject.jvubt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+    `mongodb+srv://rubi:rubi@cluster0.264g2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
