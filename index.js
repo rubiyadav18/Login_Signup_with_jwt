@@ -50,16 +50,16 @@ app.post("/register", async (req, res) => {
       });
   
       // Create token
-      const token = jwt.sign(
-        { user_id: user._id, email },
-        JWTkey,
-        // process.env.TOKEN_KEY,
-        {
-          expiresIn: "2h",
-        }
-      );
-      // save user token
-      user.token = token;
+      // const token = jwt.sign(
+      //   { user_id: user._id, email },
+      //   JWTkey,
+      //   // process.env.TOKEN_KEY,
+      //   {
+      //     expiresIn: "2h",
+      //   }
+      // );
+      // // save user token
+      // user.token = token;
   
       // return new user
       res.status(201).json(user);
